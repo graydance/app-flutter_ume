@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
 import 'package:tuple/tuple.dart';
 import 'package:flutter_ume/flutter_ume.dart';
 import 'package:flutter_ume_kit_console/console/console_manager.dart';
@@ -226,13 +225,6 @@ class ConsoleState extends State<Console>
               size: 20,
             ),
             _triggerFilter),
-        Tuple3(
-            'Share',
-            Icon(
-              Icons.share,
-              size: 20,
-            ),
-            _share),
       ],
     );
   }
@@ -252,13 +244,5 @@ class ConsoleState extends State<Console>
       }
     });
     _refreshConsole();
-  }
-
-  Future<void> _share() async {
-    if (_logList.isEmpty) {
-      return;
-    }
-    final l = _logList.map((e) => '${e.item1.toString()} ${e.item2}').toList();
-    return Share.share("${l.join('\n')}");
   }
 }

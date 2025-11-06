@@ -3,7 +3,6 @@ import 'package:flutter_ume/flutter_ume.dart';
 import 'package:flutter_ume_kit_show_code/show_code/page_info_helper.dart';
 import 'package:flutter_ume_kit_show_code/show_code/syntax_highlighter.dart';
 import 'package:flutter_ume_kit_show_code/show_code/icon.dart' as icon;
-import 'package:share/share.dart';
 
 class ShowCode extends StatefulWidget implements Pluggable {
   const ShowCode({Key? key}) : super(key: key);
@@ -194,11 +193,6 @@ class ShowCodeState extends State<ShowCode> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _share(),
-        child: Icon(Icons.share),
-      ),
       body: Container(
           color: Colors.white,
           child: SafeArea(
@@ -213,12 +207,5 @@ class ShowCodeState extends State<ShowCode> with WidgetsBindingObserver {
             ],
           ))),
     );
-  }
-
-  Future<void> _share() async {
-    if (code == null || code!.isEmpty) {
-      return;
-    }
-    return Share.share(code!);
   }
 }
