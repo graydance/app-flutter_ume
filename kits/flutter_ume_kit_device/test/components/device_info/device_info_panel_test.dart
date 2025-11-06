@@ -22,7 +22,7 @@ void main() {
       expect(imageProvider, isNotNull);
     });
     setUp(() {
-      MethodChannel('plugins.flutter.io/device_info')
+      MethodChannel('dev.fluttercommunity.plus/device_info')
           .setMockMethodCallHandler((call) {
         if (call.method == 'getIosDeviceInfo') {
           return Future.value({
@@ -75,7 +75,7 @@ void main() {
     });
 
     tearDown(() {
-      MethodChannel('plugins.flutter.io/device_info')
+      MethodChannel('dev.fluttercommunity.plus/device_info')
           .setMockMethodCallHandler(null);
     });
     testWidgets('DeviceInfoPanel pump widget, Android', (tester) async {
